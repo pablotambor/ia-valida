@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de Comprovantes de Residência | Avanade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="logo-tag">AVANADE & GROWUP</div>
+            <h1>Validação Inteligente de Comprovantes</h1>
+            <p>Análise automatizada de recência, CPF, ViaCEP e integridade via IA</p>
+        </header>
+
+        <main class="content-grid">
+            <section class="card upload-card">
+                <h2>Envio do Documento</h2>
+                <div class="drop-zone" id="dropZone">
+                    <div class="drop-icon">📄</div>
+                    <p class="drop-text">Arraste seu comprovante (PDF, PNG ou JPG) aqui ou clique para selecionar</p>
+                    <input type="file" id="fileInput" accept="image/*,application/pdf" hidden>
+                </div>
+                <div id="fileInfo" class="file-info hidden">
+                    <span id="fileName">arquivo.pdf</span>
+                    <button id="btnRemoveFile" class="btn-text">Remover</button>
+                </div>
+                <button id="btnProcessar" class="btn-primary" disabled>Validar Documento</button>
+            </section>
+
+            <section id="resultCard" class="card result-card hidden">
+                <div class="result-header">
+                    <h2>Resultado da Análise</h2>
+                    <div id="statusBadge" class="badge">APROVADO</div>
+                </div>
+                <p class="protocolo-text">Protocolo registrado no banco: <strong id="protocoloId">#001</strong></p>
+
+                <div class="section-title">Dados Extraídos (JSON)</div>
+                <pre id="jsonBox" class="json-code"></pre>
+
+                <div class="section-title">Regras de Negócio e Inconformidades</div>
+                <ul id="rulesList" class="rules-list"></ul>
+
+                <div class="section-title">Pipeline do Microsserviço (6 Passos)</div>
+                <div id="pipelineGrid" class="pipeline-grid"></div>
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
